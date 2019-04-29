@@ -1,0 +1,33 @@
+.searchbar {
+  display: flex;
+  flex-flow: row nowrap;
+  width: 100%;
+  justify-content: space-between;
+  align-content: center;
+}
+
+.left-logos {
+  display: flex;
+  align-items: center;
+  justify-self: flex-start;
+  width: 20%;
+}
+
+.right-icons {
+  display: flex;
+  justify-self: flex-end;
+  justify-content: space-between;
+  align-self: center;
+  width: 15%;
+  margin-right: 1%;
+}
+
+.fa-instagram {
+  size: 5px;
+  border-right: 1px solid gray;
+}
+
+.logo-img {
+  width: 150px;
+  height: auto;
+}

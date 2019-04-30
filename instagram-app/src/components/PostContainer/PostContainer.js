@@ -1,5 +1,6 @@
 import React from 'react';
 import Post from './Post';
+import PropTypes from 'prop-types';
 import CommentSection from '../CommentSection/CommentSection';
 import './PostContainer.css';
 
@@ -22,6 +23,10 @@ function PostContainer(props) {
       })}
     </div>
   );
+}
+
+PostContainer.propTypes = {
+  posts: PropTypes.array
 }
 
 export default PostContainer;

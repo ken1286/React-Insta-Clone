@@ -1,20 +1,24 @@
 import React from 'react';
+import Post from './Post';
 import CommentSection from '../CommentSection/CommentSection';
 import './PostContainer.css';
 
 function PostContainer(props) {
   return(
     <div className="post-wrapper">
-      {props.posts.map( post => {
+      {props.posts.map( (post, index) => {
         return (
-        <div className="one-post">
-          <img className="thumbnail" alt="thumbnail" src={post.thumbnailUrl} />
-          <h2>{post.username}</h2>
-          <img className="main-img" alt="main-img" src={post.imageUrl} />
-          <div className="main-icons"></div>
-          <p className="likes">{post.likes} Likes</p>
+        <div className="whole-post" key={index}>
+          <Post 
+            thumbnail={post.thumbnailUrl}
+            username={post.username}
+            imageUrl={post.imageUrl}
+            likes={post.likes}
+            key={post.timestamp}
+          />
           <CommentSection comments={post.comments}/>
-        </div> )
+        </div> 
+        )
       })}
     </div>
   );

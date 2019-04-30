@@ -9,6 +9,13 @@ function SearchBar(props) {
         <i className="fab fa-instagram"></i>
         <img className="logo-img" src={logo} alt="instagram" />
       </div>
+      <form className="search-form" onSubmit={props.addTodo}>
+        <input 
+          className="input-bar"
+          value={props.value}
+          name={props.name}
+          />
+      </form>
       <div className="right-icons">
         <i className="far fa-compass"></i>
         <i className="far fa-heart"></i>

@@ -17,6 +17,7 @@ const Post = props => {
         src={props.imageUrl} 
       />
       <div className="main-icons"></div>
+      <i className="far fa-heart" onClick={props.addLike}></i>
       <p className="likes">{props.likes} Likes</p>
     </div>
   );

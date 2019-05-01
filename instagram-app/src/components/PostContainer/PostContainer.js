@@ -5,6 +5,7 @@ import CommentSection from '../CommentSection/CommentSection';
 import './PostContainer.css';
 
 function PostContainer(props) {
+
   return(
     <div className="post-wrapper">
       {props.posts.map( (post, index) => {
@@ -16,8 +17,13 @@ function PostContainer(props) {
             imageUrl={post.imageUrl}
             likes={post.likes}
             key={post.timestamp}
+            addLike={props.addLike}
           />
-          <CommentSection comments={post.comments}/>
+          <CommentSection 
+            comments={post.comments}
+            addComment={props.addComment}
+            id={post.id}
+          />
         </div> 
         )
       })}

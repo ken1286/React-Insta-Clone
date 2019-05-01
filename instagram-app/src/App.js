@@ -34,12 +34,25 @@ class App extends React.Component {
           return (
           { ...item, comments: [...item.comments, {text: input, username: 'bob'}]}
           )
-      } else {
+        } else {
         return item;
-      }
+        }
+      })
     })
-  })
-}
+  }
+
+  searchUser = (input) => {
+    this.setState({
+      data: this.state.data.filter( item => {
+        if(item.username === input) {
+          return true;
+        } else {
+          return false;
+        }
+      })
+    })
+  }
+
 
   addLike = (id) => {
     this.setState({
@@ -58,7 +71,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <SearchBar />
+        <SearchBar searchUser={this.searchUser} />
         <PostContainer 
           posts={this.state.data}
           addLike={this.addLike}

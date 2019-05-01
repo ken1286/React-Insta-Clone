@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-
 //username comment
 
 // comments: [
@@ -10,7 +9,6 @@ import PropTypes from 'prop-types';
 //       text: "Love this shot!"
 //     },
 //     {]
-
 
 const Comment = props => {
 

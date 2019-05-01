@@ -23,7 +23,7 @@ function Post(props) {
         src={props.imageUrl} 
       />
       <div className="main-icons"></div>
-      <i className="far fa-heart" onClick={handleClick}></i>
+      <i className="far fa-heart" onClick={handleClick} />
       <p className="likes">{props.likes} Likes</p>
     </div>
   );

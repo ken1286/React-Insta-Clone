@@ -2,7 +2,13 @@ import React from 'react';
 import './PostContainer.css';
 import PropTypes from 'prop-types';
 
-const Post = props => {
+function Post(props) {
+
+  const handleClick = event => {
+    event.preventDefault();
+    props.addLike(props.id);
+  }
+
   return(
     <div className="main-post">
       <img 
@@ -17,7 +23,7 @@ const Post = props => {
         src={props.imageUrl} 
       />
       <div className="main-icons"></div>
-      <i className="far fa-heart" onClick={props.addLike}></i>
+      <i className="far fa-heart" onClick={handleClick}></i>
       <p className="likes">{props.likes} Likes</p>
     </div>
   );

@@ -41,10 +41,19 @@ class App extends React.Component {
   })
 }
 
-  // addLike = () => {
-  //   this.setState({ like });
-  //   console.log(like)
-  // }
+  addLike = (id) => {
+    this.setState({
+      data: this.state.data.map( item => {
+        if(item.id === id) {
+          return (
+            { ...item, [item.likes]: item.likes++}
+          )
+        } else {
+          return item;
+        }
+      })
+    })
+  }
 
   render() {
     return (

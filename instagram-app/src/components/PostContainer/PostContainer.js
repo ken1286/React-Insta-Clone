@@ -18,6 +18,8 @@ function PostContainer(props) {
             likes={post.likes}
             key={post.timestamp}
             addLike={props.addLike}
+            data={post}
+            id={post.id}
           />
           <CommentSection 
             comments={post.comments}

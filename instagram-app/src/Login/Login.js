@@ -16,29 +16,35 @@ class Login extends React.Component {
     })
   }
 
+  handleLoginSubmit = event => {
+    const user = this.state.username;
+    localStorage.setItem('user', user);
+    window.location.reload();
+  }
+
   render() {
     return (
-      <Form className="login-form">
+      <form className="login">
         <h1>Login</h1>
-        <Input
+        <input
           type="text"
           placeholder="username"
           name="username"
           value={this.state.username}
           onChange={this.handleInputChange}
         />
-        <Input
+        <input
           type="password"
           placeholder="password"
           name="password"
           value={this.state.password}
           onChange={this.handleInputChange}
         />
-        <Button 
+        <button 
           onClick={this.handleLoginSubmit}>
           Log In
-        </Button>
-      </Form>
+        </button>
+      </form>
     )
   }
 }

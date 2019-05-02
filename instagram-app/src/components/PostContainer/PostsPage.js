@@ -31,7 +31,7 @@ class PostsPage extends React.Component {
       data: this.state.data.map( item => {
         if(item.id === id) {
           return (
-          { ...item, comments: [...item.comments, {text: input, username: 'bob'}]}
+          { ...item, comments: [...item.comments, {text: input, username: localStorage.getItem('user')}]}
           )
         } else {
         return item;

@@ -2,15 +2,24 @@ import React from 'react';
 import Post from './Post';
 import PropTypes from 'prop-types';
 import CommentSection from '../CommentSection/CommentSection';
-import './PostContainer.css';
+import styled from 'styled-components'
+
+const PostWrapper = styled.div`
+  display: flex;
+  flex-flow: column nowrap;
+  width: 90%;
+  margin: 0 auto;
+  margin-top: 3%;
+  border: 2px dashed black;
+`;
 
 function PostContainer(props) {
 
   return(
-    <div className="post-wrapper">
+    <>
       {props.posts.map( (post, index) => {
         return (
-        <div className="whole-post" key={index}>
+        <PostWrapper key={index}>
           <Post 
             thumbnail={post.thumbnailUrl}
             username={post.username}
@@ -26,10 +35,10 @@ function PostContainer(props) {
             addComment={props.addComment}
             id={post.id}
           />
-        </div> 
+        </PostWrapper>
         )
       })}
-    </div>
+    </>
   );
 }
 

@@ -14,7 +14,7 @@ const Comment = props => {
 
   return (
     <div className='comment'>
-    <p> <strong>{props.comment.username}</strong>{props.comment.text} </p> 
+    <p> <strong>{props.comment.username}</strong> {props.comment.text}</p> 
     </div>
     );
 }

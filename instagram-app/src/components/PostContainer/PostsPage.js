@@ -8,16 +8,18 @@ class PostsPage extends React.Component {
     super();
     this.state = {
       data: [],
-      comments: []
+      comments: [],
+      filteredPosts: [],
+      searched: false
     }
   }
 
   componentDidMount() {
     this.setState({
       data: dummyData,
-      comments: dummyData.map( item => {
-        return item.comments
-      })
+      comments: dummyData.map( item => item.comments),
+      filteredPosts: [],
+      searched: false
     })
   }
 
@@ -40,16 +42,24 @@ class PostsPage extends React.Component {
     })
   }
 
-  searchUser = (input) => {
-    this.setState({
-      data: this.state.data.filter( item => {
-        if(item.username === input) {
-          return true;
-        } else {
-          return false;
-        }
-      })
+  searchUser = input => {
+    console.log(input);
+    const posts = this.state.data.filter( item => {
+      if(item.username.includes(input.toLowerCase())) {
+        return item;
+      }
     })
+
+    let search = false;
+    if(input.length > 0) {
+      search = true;
+    }
+
+    this.setState({
+      filteredPosts: posts,
+      searched: search
+    }
+    )
   }
 
 
@@ -72,7 +82,10 @@ class PostsPage extends React.Component {
       <div className="App">
         <SearchBar searchUser={this.searchUser} />
         <PostContainer 
-          posts={this.state.data}
+          posts={this.state.searched === true
+            ? this.state.filteredPosts
+            : this.state.data
+          }
           addLike={this.addLike}
           addComment={this.addComment}
         />

@@ -48,6 +48,7 @@ class PostsPage extends React.Component {
       if(item.username.includes(input.toLowerCase())) {
         return item;
       }
+      return false;
     })
 
     let search = false;
